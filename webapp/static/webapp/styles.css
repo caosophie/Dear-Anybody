@@ -1,0 +1,229 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+.home, .about {
+    position: relative;
+    height: 100vh;
+    text-align: center;
+}
+
+.home .nav {
+    margin: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+#link {
+    text-decoration: none;
+    color: white;
+    padding: 2px;
+}
+
+#link::before {
+    content: "\2197" !important;
+    padding: 4px;
+}
+
+@keyframes bouncing {
+    0% {bottom: 0;}
+    50% {bottom: 5px;}
+    100% {bottom: 0;}
+}
+
+#arrow {
+    animation: bouncing 1.5s infinite ease-in-out;
+    bottom: 100;
+    display: block;
+    height: 30px;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    margin-bottom: 40px;
+}
+
+.board {
+    height: 100vh;
+    background-color: white;
+    text-align: center;
+    position: relative;
+}
+
+.main {
+    height: 75%;
+    text-align: center;
+    padding-top: 50px;
+    overflow: hidden;
+}
+
+.square {
+    height: 280px;
+    padding: 40px;
+    width: 280px;
+    border-radius: 2px;
+    transition: all .2s ease;
+    cursor: pointer;
+    display: inline-flex;
+    margin: 20px;
+    box-shadow: 0 0.5px 2.5px 0 rgba(0, 0, 0, 1);
+    user-select: none;
+    position: relative;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-width: 0;
+    vertical-align: top;
+}
+
+.quote {
+    height: 100px;
+    width: 200px;
+    /*white-space: nowrap;*/
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quote p {
+    margin-top: auto;
+    margin-bottom: auto;
+    max-height: 100%;
+}
+
+.ellipsis {
+    background:inherit;
+    position:absolute;
+    background:inherit;
+    position:absolute;
+    bottom:5%;
+    right:10%;
+}
+
+.modal {
+    display: none;
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  
+
+  .modal-content {
+    background-color: black;
+    color: white;
+    margin: 15% auto; 
+    padding: 60px;
+    border: 1px solid #888;
+    width: 30%; 
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content p {
+      margin: 0;
+  }
+
+/*-------About--------*/
+
+.myrow {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+.col-right {
+    padding: 0 30px 0 30px;
+    display: table-cell;
+    vertical-align: middle;
+    width: 60%;
+    height: 100vh;
+}
+
+.col-left {
+    padding: 50px 0 0 0;
+    display: table-cell;
+    vertical-align: middle;
+    width: 40%;
+    height: 100vh;
+    overflow: auto;
+    text-align: left;
+}
+
+.vidboard {
+    width: 100%;
+    overflow: hidden;
+}
+
+#image {
+    height: 30%;
+    width: 30%;
+    display: inline-flex;
+    position: relative;
+    vertical-align: top;
+}
+
+#title {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+#paragraph {
+    color: white;
+    margin: 0px 90px 0px 0px;
+    height: 550px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#paragraph::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.sidebar {
+    position: fixed;
+    top: calc(50% - 250px);
+    right: 0;
+    transition: width 300ms ease-out; 
+    width:0;
+    z-index: 99999;
+    display: none;
+}
+
+.share {
+    box-sizing: border-box;
+    position: absolute;
+    top: 300px;
+    width: 200px;
+    height: 48px;
+    padding: 0 20px;
+    margin: 0;
+    cursor: pointer;
+    background:#238df0;
+    border-radius: 4px 4px 0px 0px;
+    box-shadow:0px 2px 12px rgba(0, 0, 0, 0.06), 0px 2px 4px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transform: rotate(-90deg);
+    transform-origin: bottom left;
+    color:white;
+    text-decoration: none;
+    z-index: 9999;
+}
+
+.share:hover {text-decoration: none;}

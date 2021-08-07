@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}mental health matters.{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'webapp/styles.css' %}" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
+        <script src="{% static 'webapp/index.js' %}"></script>
+    </head>
+    <body>
+        <div class="home">
+            <div class="nav">
+                <p style="font-weight: bold; font-style: italic; font-size: 24px;">
+                    mental health matters.
+                </p>
+                <p>
+                    <a href="#" id="link">stories.</a><br>
+                    <a href="#" id="link">share your story.</a><br>
+                    <a href="#" id="link">resources.</a><br>
+                    <a href="#" id="link">learn.</a><br>
+                    <a href="#" id="link">contact.</a><br>
+                </p>
+            </div>
+            <a href="#board"><img id="arrow" src="{% static 'webapp/media/outline_expand_more_white_24dp.png' %}"></a>
+        </div>
+        <div class="board" id="board">
+            <div class="main">
+                {% for submission in submissions %}
+                <div class="square" style="background-color: black;" onclick="enlarge('{{ submission.id }}')">
+                    <div class="quote">
+                        <p>"{{ submission.message }}"</p>
+                    </div>
+                    <span class="ellipsis">...</span>
+                </div>
+                <div id="{{ submission.id }}" class="modal">
+                    <div class="modal-content">
+                        <p>"{{ submission.message }}"</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <br><br>
+            <a href="stories.html" style="text-decoration: none; color: black;">See more.</a>
+            <img id="arrow" src="{% static 'webapp/media/outline_expand_more_black_24dp.png' %}">
+            
+            <div class="sidebar"> 
+                <a class="share" href="https://form.typeform.com/to/sbTMCZcu?typeform-medium=embed-snippet">
+                    <span style="text-decoration:none; font-size:18px; font-family: 'Raleway', sans-serif; width:100%; text-align:center;"> Share my story</span> 
+                </a> 
+            </div>
+
+        </div>
+        <div class="about">
+            <div class="myrow">
+                <div class="col-right">
+                    <div class="vidboard">
+                        <video id='vid' width="30%" max-height="30%" autoplay muted controls loop>
+                            <source src="{% static 'webapp/media/kathleen.mp4' %}" type="video/mp4">
+                        </video>
+                        <img src="{% static 'webapp/media/self-love.png' %}" id="image">
+                        <video width="30%" max-height="30%" autoplay muted controls loop>
+                            <source src="{% static 'webapp/media/ben.mp4' %}" type="video/mp4">
+                        </video>
+                        <img src="{% static 'webapp/media/productive.png' %}" id="image">
+                        <video width="30%" max-height="30%" autoplay muted controls loop>
+                            <source src="{% static 'webapp/media/awa.mp4' %}" type="video/mp4">
+                        </video>
+                        <video width="30%" max-height="30%" autoplay muted controls loop>
+                            <source src="{% static 'webapp/media/sophie.mp4' %}" type="video/mp4">
+                        </video>
+                        <video width="30%" max-height="30%" autoplay muted controls loop>
+                            <source src="{% static 'webapp/media/shivam.mp4' %}" type="video/mp4">
+                        </video>
+                        <video width="30%" max-height="30%" autoplay muted controls loop>
+                            <source src="{% static 'webapp/media/julia.mp4' %}" type="video/mp4">
+                        </video>
+                        <img src="{% static 'webapp/media/goal.png' %}" id="image">
+                    </div>
+                </div>
+                <div class="col-left">
+                    <p id="title">
+                        About the project
+                    </p>
+                    <p id="paragraph">
+                        The 'Dear Anybody' campaign was created little over a year ago. 
+                        <br><br>
+                        The idea came when Patrick and I were sharing about the pressure we face as students. We noticed that while many of our peers has experienced the similar feelings of anxiety, many were hesitant to seek help due to the stigma surrounding mental health and mental illness. 
+                        <br><br>
+                        That's when we thought of creating a place where students --people-- could share about their insecurities, mental health, passions, accomplishments, and so much more. The purpose of such platform was to open the door to honest conversations about mental health and to raise awareness about the cause. 
+                        <br><br>
+                        And so, camera in hand, we started filming students across campus. As we posted our first video, we were surprised at the number people who related to the story and who were willing to share theirs. I've heard many beautiful, touching and honest things during our filming sessions. I really hope you can find yourself through the posted stories, and that you'll enjoy them as much as I did.
+                        <br><br>
+                        Sophie
+                    </p>
+                    <video width="15%" height="15%" autoplay muted loop>
+                        <source src="{% static 'webapp/media/dear.mp4' %}" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
