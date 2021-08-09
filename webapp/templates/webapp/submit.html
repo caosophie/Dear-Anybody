@@ -1,0 +1,12 @@
+{% extends "webapp/layout.html" %}
+
+{% block body %}
+<div class="form-modal">
+    <form action="{% url 'submit' %}" method="POST" id="createdform">
+        {% csrf_token %}
+        {{ form.name }}
+        {{ form.message }}
+        <input type="submit" class="btn btn-primary">
+    </form>
+</div>
+{% endblock %}
