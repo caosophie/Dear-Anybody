@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block title %}Dear Anybody - Share your story{% endblock %}
-{% block css %}<link href="{% static 'webapp/share.css' %}" rel="stylesheet">{% endblock %}
 {% block section %}
 <div class="submit-row">
     <div class="submit-col-left">
@@ -16,9 +15,9 @@
             <br><br>
             Throughout our project, we realized that as more people shared their stories, more people were empowered to do the same. So, if you feel comfortable and ready to do so, fill out the form on this page. You can sign your name, your nickname, your alias, anything that you want. It's your letter.
             <br><br>
-            Your letter will be automatically added to our <i><a href="#" style="padding: 0;">stories</a></i> section. Kindly note that messages cannot be edited or deleted once submitted (however, if do feel the need to do so, shoot us a message and we'll respond right away). 
+            Your letter will be automatically added to our <i><a href="{% url 'stories' %}" style="padding: 0;">stories</a></i> section. Kindly note that messages cannot be edited or deleted once submitted (however, if do feel the need to do so, shoot us a message and we'll respond right away). 
             <br><br>
-            Head <i><a href="#" style="padding: 0;">here</a></i> to see all the letters we've collected so far.
+            Head <i><a href="{% url 'stories' %}" style="padding: 0;">here</a></i> to see all the letters we've collected so far.
         </p>
     </div>
     <div class="submit-col-right">

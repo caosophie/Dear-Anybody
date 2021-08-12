@@ -18,9 +18,14 @@ def submit(request):
             name = form.cleaned_data["name"]
             Submission.objects.create(name=name, message=message)
 
-        return HttpResponseRedirect(reverse("index"))
+        return HttpResponseRedirect(reverse("stories"))
     
     else:
         return render(request, "webapp/submit.html", {
             "form" : CreateForm()
         })
+
+def stories(request):
+    return render(request, "webapp/stories.html", {
+        "submissions" : Submission.objects.all()
+    })

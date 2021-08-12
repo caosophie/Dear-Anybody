@@ -1,0 +1,36 @@
+{% extends "webapp/layout-secondary.html" %}
+{% load static %}
+
+{% block title %}Dear Anybody - Stories{% endblock %}
+{% block css %}<link href="{% static 'webapp/stories.css' %}" rel="stylesheet">{% endblock %}
+
+{% block banner %}
+<div class="banner">
+    <p>Click to see display full letter.</p>
+</div>
+{% endblock %}
+
+{% block section %}
+<div class="submissions">
+    {% for submission in submissions %}
+    <div class="square" onclick="enlarge('{{ submission.id }}')">
+        <span class="title">dear anybody,</span>
+        <div class="quote">
+            <p>{{ submission.message }}</p>
+        </div>
+        <span class="name">{{ submission.name }}.</span>
+        <span class="ellipsis">...</span>
+    </div>
+    <div id="{{ submission.id }}" class="modal">
+        <div class="modal-content">
+            <p>{{ submission.message }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="sidebar-s"> 
+    <a class="share-s" href="{% url 'submit' %}">
+        <span style="text-decoration:none; font-size:18px; font-family: 'Raleway', sans-serif; width:100%; text-align:center;"> Share my story</span> 
+    </a> 
+</div>
+{% endblock %}
