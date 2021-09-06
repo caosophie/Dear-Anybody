@@ -1,0 +1,37 @@
+{% extends "webapp/layout-secondary.html" %}
+{% load static %}
+
+{% block title %}Dear Anybody - Share your story{% endblock %}
+{% block section %}
+<div class="submit-row">
+    <div class="submit-col-left">
+        <p id="title">
+            Share your story.
+        </p>
+        <p id="paragraph">
+            The 'Dear Anybody' campaign is centered around story-telling with its main concept being letters from anybody adddressed to anybody. 
+            <br><br>
+            Mental health is still highly stigmatized. And because of that, it is not uncommon for people to be hesitant to talk about the topic. But we believe that through story-telling, this can change. 
+            <br><br>
+            Throughout our project, we realized that as more people shared their stories, more people were empowered to do the same. So, if you feel comfortable and ready to do so, fill out the form on this page. You can sign your name, your nickname, your alias, anything that you want. It's your letter.
+            <br><br>
+            Your letter will be automatically added to our <i><a href="{% url 'stories' %}" style="padding: 0;">stories</a></i> section. Kindly note that messages cannot be edited or deleted once submitted (however, if do feel the need to do so, shoot us a message and we'll respond right away). 
+            <br><br>
+            Head <i><a href="{% url 'stories' %}" style="padding: 0;">here</a></i> to see all the letters we've collected so far.
+        </p>
+    </div>
+    <div class="submit-col-right">
+        <div class="form">
+            <form action="{% url 'submit' %}" method="POST" id="createdform">
+                {% csrf_token %}
+                <p id="form-title">Dear anybody...</p>
+                {{ form.message }}
+                <p style="font-size: 20px;">Signed,</p>
+                {{ form.name }}
+                <p style="font-size: 12px; margin-bottom: 50px;">*If you want to keep your message anonymous, simply put 'Anonymous' instead of your name.</p>
+                <button type="submit" class="btn btn-light">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

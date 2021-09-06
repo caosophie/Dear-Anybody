@@ -9,11 +9,11 @@ window.onload = function() {
     modal = document.getElementsByClassName("modal");
     quote = document.getElementsByClassName("quote");
     ellipsis = document.getElementsByClassName("ellipsis");
+    more();
 };
 
 window.onscroll = function() {
     hide();
-    more();
 };
 
 function more() {
