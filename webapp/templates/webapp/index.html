@@ -8,8 +8,8 @@
             mental health matters.
         </p>
         <p>
-            <a href="#" id="link">stories.</a><br>
-            <a href="#" id="link">share your story.</a><br>
+            <a href="{% url 'stories' %}" id="link">stories.</a><br>
+            <a href="{% url 'submit' %}" id="link">share your story.</a><br>
             <a href="#" id="link">resources.</a><br>
             <a href="#" id="link">learn.</a><br>
             <a href="#" id="link">contact.</a><br>
@@ -36,7 +36,6 @@
     <br><br>
     <a href="{% url 'stories' %}" style="text-decoration: none; color: black;">See more.</a>
     <img id="arrow" src="{% static 'webapp/media/outline_expand_more_black_24dp.png' %}">
-    
     <div class="sidebar"> 
         <a class="share" href="{% url 'submit' %}">
             <span style="text-decoration:none; font-size:18px; font-family: 'Raleway', sans-serif; width:100%; text-align:center;"> Share my story</span> 
@@ -72,7 +71,7 @@
         </div>
         <div class="col-left">
             <p id="title">
-                About the project
+                about the project.
             </p>
             <p id="paragraph">
                 The 'Dear Anybody' campaign was created little over a year ago. 
@@ -91,4 +90,58 @@
         </div>
     </div>
 </div>
+
+<!--Share your story section-->
+<div class="share-story">
+    <div class="share-content">
+        <h2><i>Dear Anybody</i> is centered around story-telling.</h2>
+        <p>We believe in destigmatizing mental health, one story at the time.</p>
+        <a href="{% url 'submit' %}">Share your story today</a>&nbsp;&rarr;
+    </div>
+</div>
+
+<!--Carousel facts-->
+<div class="facts-section">
+    <div class="facts-board">
+        {% for fact in facts %}
+        <div class="fact">
+            <div class="fact-img" style="background-image: url('{{ fact.image }}');"></div>
+            <div class="fact-content">
+                <h5>{{ fact.title }}</h5>
+                <p>{{ fact.description }} <i>({{ fact.link }})</i></p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="resources">
+            <div class="row">
+                <div id="first-col" class="col">
+                    <h4>helplines (phone & text).</h4>
+                    <br>
+                    <h5>Kids Help Phone</h5>
+                    <p id="contact">Call 1-800-668-6868 (toll-free) or text CONNECT to 686868.</p>
+                    <p id="description">Available 24/7 for Canadians from 5 to 29 years old.</p>
+                </div>
+                <div id="middle-col" class="col">
+                    <h4>apps.</h4>
+                    <br>
+                    <h5>The LifeLine App</h5>
+                    <p id="contact">Download the app to access phone, text, chat & email suppport. E-counselling & access to crisis centres in Canada</p>
+                    <p id="description">Available for both iOS & Android users.</p>
+                </div>
+                <div id="last-col" class="col">
+                    <h4>mental health organizations.</h4>
+                    <br>
+                    <h5>Jack.org</h5>
+                    <p id="contact">Non-profit empowering young advocates to take action on mental health issues.</p>
+                    <p id="description">Participate in conferences, join chapters, give talks.</p>
+                    <br>
+                    <h5>Togetherall</h5>
+                    <p id="contact">An online anonymous peer support community.</p>
+                    <p id="description">Talk about your feelings and connect with others.</p>
+                </div>
+            </div>
+        </div>
 {% endblock %}
